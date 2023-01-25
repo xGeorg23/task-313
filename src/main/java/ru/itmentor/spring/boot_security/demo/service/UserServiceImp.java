@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.itmentor.spring.boot_security.demo.repository.UserRepository;
 import ru.itmentor.spring.boot_security.demo.model.User;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
