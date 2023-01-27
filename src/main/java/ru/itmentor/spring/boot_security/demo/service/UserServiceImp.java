@@ -54,8 +54,6 @@ public class UserServiceImp implements UserService, UserDetailsService {
     @Override
     public void updateUser(Long id, User updateUser) {
         User user = userRepository.findById(id).orElse(null);
-        System.out.println(user);
-        updateUser.getName();
         user.setName(updateUser.getName());
         user.setLastName(updateUser.getLastName());
         user.setEmail(updateUser.getEmail());
