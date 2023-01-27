@@ -26,6 +26,7 @@ public class UserServiceImp implements UserService, UserDetailsService {
     @Transactional
     @Override
     public void save(User user) {
+        System.out.println(user.getUsername());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
@@ -53,6 +54,8 @@ public class UserServiceImp implements UserService, UserDetailsService {
     @Override
     public void updateUser(Long id, User updateUser) {
         User user = userRepository.findById(id).orElse(null);
+        System.out.println(user);
+        updateUser.getName();
         user.setName(updateUser.getName());
         user.setLastName(updateUser.getLastName());
         user.setEmail(updateUser.getEmail());
