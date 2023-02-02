@@ -2,7 +2,6 @@ package ru.itmentor.spring.boot_security.demo.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -10,7 +9,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "roles")
-@ToString(of = {"name"})
 public class Role implements GrantedAuthority {
 
     @Id
@@ -20,8 +18,6 @@ public class Role implements GrantedAuthority {
     private Long id;
 
     @Column(name = "name")
-    @Setter
-    @Getter
     private String name;
 
     @ManyToMany(mappedBy = "roles")
@@ -29,7 +25,7 @@ public class Role implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return name;
+        return getRole();
     }
 
     public Role(){
@@ -40,4 +36,12 @@ public class Role implements GrantedAuthority {
         this.users = users;
     }
 
+    public String getRole() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
