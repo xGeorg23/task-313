@@ -170,7 +170,7 @@
                                                                                                         required>
                                                                                                     <option th:each="role: ${roles}"
                                                                                                             th:name="*{roles}"
-                                                                                                            th:text="${role.getRole}"
+                                                                                                            th:text="${role.getName()}"
                                                                                                             th:value="${role.id}"
                                                                                                             class="m-2"/>
                                                                                                     </th:block>
@@ -278,7 +278,7 @@
                                                                                                         disabled>
                                                                                                     <option th:each="role: ${roles}"
                                                                                                             th:name="*{roles}"
-                                                                                                            th:text="${role.getRole}"
+                                                                                                            th:text="${role.getName()}"
                                                                                                             th:value="${role.id}"
                                                                                                             class="m-2"
                                                                                                             disabled/>
@@ -372,7 +372,7 @@
                                                                         size="2" required>
                                                                     <option th:each="role: ${roles}"
                                                                             th:name="*{roles}"
-                                                                            th:text="${role.getRole}" th:value="${role.id}"
+                                                                            th:text="${role.getName()}" th:value="${role.id}"
                                                                             class="m-2"/>
                                                                 </select>
                                                             </tr>
