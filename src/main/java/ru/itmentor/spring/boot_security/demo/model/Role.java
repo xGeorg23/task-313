@@ -2,6 +2,7 @@ package ru.itmentor.spring.boot_security.demo.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "roles")
+@ToString(of = {"name"})
 public class Role implements GrantedAuthority {
 
     @Id
