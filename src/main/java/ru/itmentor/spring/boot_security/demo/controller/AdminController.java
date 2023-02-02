@@ -27,15 +27,15 @@ public class AdminController {
     @GetMapping
     public String showAllUsers(Model model, Principal principal) {
         model.addAttribute("admin", userService.getUserByEmail(principal.getName()));
-        model.addAttribute("users", userService.allUsers());
-        model.addAttribute("roles", roleService.allRole());
+        model.addAttribute("users", userService.getAllUsers());
+        model.addAttribute("roles", roleService.getAllRoles());
         model.addAttribute("user", new User());
         return "admin";
     }
 
     @PostMapping("/create")
     public String saveUser(@ModelAttribute("user") User user, @RequestParam("listRoles") List<String> values){
-        user.setRoles(roleService.getRole(values));
+        user.setRoles(roleService.setRole(values));
         userService.save(user);
         return "redirect:/admin";
     }
@@ -44,7 +44,7 @@ public class AdminController {
     public String updateUser(@PathVariable("id") Long id,
                              @ModelAttribute("user") User user,
                              @RequestParam("listRoles") List<String> values){
-        user.setRoles(roleService.getRole(values));
+        user.setRoles(roleService.setRole(values));
         userService.updateUser(id, user);
         System.out.println(user.getUsername());
         return "redirect:/admin";
